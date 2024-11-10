@@ -26,23 +26,22 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
             Route::get('/cart/history', 'cart_history')->name('admin.cart.history');
             Route::get('/order/history', 'order_history')->name('admin.order.history');
         });
-    });
 
-    Route::controller(CategoryController::class)->group(function () {
-            Route::get('/category/create', 'index')->name('category.create');
-            Route::get('/category/manage', 'manage')->name('category.manage');
-    });
+        Route::controller(CategoryController::class)->group(function () {
+                Route::get('/category/create', 'index')->name('admin.category.create');
+                Route::get('/category/manage', 'manage')->name('admin.category.manage');
+        });
 
-    Route::controller(ProductController::class)->group(function () {
-            Route::get('/product/manage', 'index')->name('product.manage');
-            Route::get('/product/review', 'review_manage')->name('product.review.manage');
-    });
+        Route::controller(ProductController::class)->group(function () {
+                Route::get('/product/manage', 'index')->name('admin.product.manage');
+                Route::get('/product/review', 'review_manage')->name('admin.product.manage_product_review');
+        });
 
-    Route::controller(ProductAttributeController::class)->group(function () {
-            Route::get('/productattribute/create', 'index')->name('productattribute.create');
-            Route::get('/productattribute/manage', 'manage')->name('productattribute.manage');
+        Route::controller(ProductAttributeController::class)->group(function () {
+                Route::get('/product_attribute/create', 'index')->name('admin.product_attribute.create');
+                Route::get('/product_attribute/manage', 'manage')->name('admin.product_attribute.manage');
+        });
     });
-    
 });
 
 
