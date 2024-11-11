@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminMainController;
+
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductAttributeController;
+use App\Http\Controllers\Seller\SellerMainController;
+use App\Http\Controllers\Seller\SellerStoreController;
+use App\Http\Controllers\Seller\SellerProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +19,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'rolemanager:customer'])->name('dashboard');
 
-// admin route
+// admin routes
 Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () {
     Route::prefix('admin')->group(function(){
         Route::controller(AdminMainController::class)->group(function () {
@@ -45,9 +49,26 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
 });
 
 
-Route::get('/vendor/dashboard', function () {
-    return view('vendor');
-})->middleware(['auth', 'verified', 'rolemanager:vendor'])->name('vendor');
+// vendor routes
+Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function () {
+    Route::prefix('vendor')->group(function(){
+        Route::controller(SellerMainController::class)->group(function () {
+            Route::get('/dashboard', 'index')->name('vendor');
+            Route::get('/order/history', 'orderhistory')->name('vendor.order.history');
+        });
+
+        Route::controller(SellerStoreController::class)->group(function () {
+            Route::get('/store/create', 'index')->name('vendor.store');
+            Route::get('/store/manage', 'manage')->name('vendor.store.manage');
+        });
+
+        Route::controller(SellerProductController::class)->group(function () {
+            Route::get('/product/create', 'index')->name('vendor.product');
+            Route::get('/product/manage', 'manage')->name('vendor.product.manage');
+        });
+    });
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
