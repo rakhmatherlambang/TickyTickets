@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductAttributeController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerStoreController;
 use App\Http\Controllers\Seller\SellerProductController;
+use App\Http\Controllers\Customer\CustomerMainController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,6 +66,19 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
         Route::controller(SellerProductController::class)->group(function () {
             Route::get('/product/create', 'index')->name('vendor.product');
             Route::get('/product/manage', 'manage')->name('vendor.product.manage');
+        });
+    });
+});
+
+
+// cutomer routes
+Route::middleware(['auth', 'verified', 'rolemanager:customer'])->group(function () {
+    Route::prefix('user')->group(function(){
+        Route::controller(CustomerMainController::class)->group(function () {
+            Route::get('/dashboard', 'index')->name('dashboard');
+            Route::get('/order/history', 'history')->name('customer.history');
+            Route::get('/setting/payment', 'payment')->name('customer.payment');
+            Route::get('/affiliate', 'affiliate')->name('customer.affiliate');
         });
     });
 });
