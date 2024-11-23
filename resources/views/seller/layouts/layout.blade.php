@@ -76,18 +76,7 @@
               <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>	
             </a>
 					</li>
-
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-						<div class="mb-3 text-sm">
-							Are you looking for more components? Check out our premium version.
-						</div>
-						<div class="d-grid">
-							<a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-						</div>
-					</div>
-				</div>
+				</ul>
 			</div>
 		</nav>
 
@@ -266,7 +255,7 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin Template</strong></a>								&copy;
+								<a class="text-muted" href="#" target="_blank"><strong>TickyTickets</strong></a> - <a class="text-muted" href="#" target="_blank"><strong>Easier Than You Think</strong></a>								&copy;
 							</p>
 						</div>
 						<div class="col-6 text-end">

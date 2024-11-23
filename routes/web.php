@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminMainController;
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\MasterCategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProductAttributeController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerStoreController;
 use App\Http\Controllers\Seller\SellerProductController;
@@ -42,9 +42,11 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
                 Route::get('/product/review', 'review_manage')->name('admin.product.manage_product_review');
         });
 
-        Route::controller(ProductAttributeController::class)->group(function () {
-                Route::get('/product_attribute/create', 'index')->name('admin.product_attribute.create');
-                Route::get('/product_attribute/manage', 'manage')->name('admin.product_attribute.manage');
+        Route::controller(MasterCategoryController::class)->group(function () {
+                Route::post( '/store/category', 'storecat')->name('store.cat');
+                Route::get( '/category/{id}', 'showcat')->name('show.cat');
+                Route::put( '/category/update/{id}', 'updatecat')->name('update.cat');
+                Route::delete( '/category/delete/{id}', 'deletecat')->name('delete.cat');
         });
     });
 });

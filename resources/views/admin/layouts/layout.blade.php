@@ -13,6 +13,7 @@
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 	<title>@yield('admin_page_title')</title>
 
@@ -72,22 +73,6 @@
 					</li>
 
 					<li class="sidebar-header">
-						Attribute
-					</li>
-
-					<li class="sidebar-item {{request()->routeIs('admin.product_attribute.create')?'active':''}}">
-						<a class="sidebar-link" href="{{ route('admin.product_attribute.create') }}">
-              <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>	
-            </a>
-					</li>
-
-					<li class="sidebar-item {{request()->routeIs('admin.product_attribute.manage')?'active':''}}">
-						<a class="sidebar-link" href="{{ route('admin.product_attribute.manage') }}">
-              <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>	
-            </a>
-					</li>
-
-					<li class="sidebar-header">
 						Product
 					</li>
 
@@ -125,18 +110,6 @@
             </a>
 					</li>
 				</ul>
-
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-						<div class="mb-3 text-sm">
-							Are you looking for more components? Check out our premium version.
-						</div>
-						<div class="d-grid">
-							<a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-						</div>
-					</div>
-				</div>
 			</div>
 		</nav>
 
@@ -286,7 +259,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Admin</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -315,7 +288,7 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin Template</strong></a>								&copy;
+								<a class="text-muted" href="#" target="_blank"><strong>TickyTickets</strong></a> - <a class="text-muted" href="#" target="_blank"><strong>Easier Than You Think</strong></a>								&copy;
 							</p>
 						</div>
 						<div class="col-6 text-end">
