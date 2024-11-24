@@ -18,6 +18,8 @@
 
 	<link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	
+
 </head>
 
 <body>
@@ -25,7 +27,7 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">Seller TickyTickets</span>
+          <span class="align-middle">Seller TickyTickets</span>	
         </a>
 
 				<ul class="sidebar-nav">
