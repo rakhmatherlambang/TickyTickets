@@ -58,6 +58,9 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
 
         Route::controller(MasterSubCategoryController::class)->group(function () {
                 Route::post( '/store/subcategory', 'storesubcat')->name('store.subcat');
+                Route::get( '/subcategory/{id}', 'showsubcat')->name('show.subcat');
+                Route::put( '/subcategory/update/{id}', 'updatesubcat')->name('update.subcat');
+                Route::delete( '/subcategory/delete/{id}', 'deletesubcat')->name('delete.subcat');
                 
         });
     });

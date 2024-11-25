@@ -19,19 +19,21 @@ Manage SubCategory | Admin
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>SubCategory Name</th>
+                        <th>SubCategory</th>
+                        <th>Category</th>
                         <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $cat)
+                    @foreach ($subcategories as $subcat)
                         <tr>
-                            <td>{{ $cat->id }}</td>
-                            <td>{{ $cat->category_name }}</td>
+                            <td>{{ $subcat->id }}</td>
+                            <td>{{ $subcat->subcategory_name }}</td>
+                            <td>{{ $subcat->category->category_name }}</td>
                             <td>
-                                <a href="{{ route('show.cat', $cat->id) }}" class="btn btn-info">Edit</a>
-                                <form action="{{ route('delete.cat', $cat->id) }} " method="POST">
+                                <a href="{{ route('show.subcat', $subcat->id) }}" class="btn btn-info">Edit</a>
+                                <form action="{{ route('delete.subcat', $subcat->id) }} " method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Delete" class="btn btn-danger">

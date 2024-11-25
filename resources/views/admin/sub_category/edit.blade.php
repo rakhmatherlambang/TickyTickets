@@ -23,11 +23,11 @@ Edit SubCategory | Admin
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="{{ route('update.cat',  $category_info->id) }}" method="POST">
+            <form action="{{ route('update.subcat',  $subcategory_info->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <label for="category_name" class="fw-bold mb-2">Give New SubCategory Name</label>
-                <input type="text" class="form-control" name="category_name" value="{{ $category_info->category_name }}">
+                <label for="subcategory_name" class="fw-bold mb-2">Give Your SubCategory Name</label>
+                <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory_info->subcategory_name }}">
                 <button type="submit" class="btn btn-primary w-100 mt-2">Update SubCategory</button>
             </form>
         </div>
