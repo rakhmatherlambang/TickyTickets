@@ -4,7 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminMainController;
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\MasterCategoryController;
+use App\Http\Controllers\MasterSubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerStoreController;
@@ -37,6 +39,11 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
                 Route::get('/category/manage', 'manage')->name('admin.category.manage');
         });
 
+        Route::controller(SubCategoryController::class)->group(function () {
+                Route::get('/subcategory/create', 'index')->name('admin.sub_category.create');
+                Route::get('/subcategory/manage', 'manage')->name('admin.sub_category.manage');
+        });
+
         Route::controller(ProductController::class)->group(function () {
                 Route::get('/product/manage', 'index')->name('admin.product.manage');
                 Route::get('/product/review', 'review_manage')->name('admin.product.manage_product_review');
@@ -47,6 +54,11 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
                 Route::get( '/category/{id}', 'showcat')->name('show.cat');
                 Route::put( '/category/update/{id}', 'updatecat')->name('update.cat');
                 Route::delete( '/category/delete/{id}', 'deletecat')->name('delete.cat');
+        });
+
+        Route::controller(MasterSubCategoryController::class)->group(function () {
+                Route::post( '/store/subcategory', 'storesubcat')->name('store.subcat');
+                
         });
     });
 });

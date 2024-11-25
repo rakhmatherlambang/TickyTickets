@@ -73,6 +73,22 @@
 					</li>
 
 					<li class="sidebar-header">
+						Sub	Category
+					</li>
+
+					<li class="sidebar-item {{request()->routeIs('admin.sub_category.create')?'active':''}}">
+						<a class="sidebar-link" href="{{ route('admin.sub_category.create') }}">
+              <i class="align-middle" data-feather="file-plus"></i> <span class="align-middle">Create</span>	
+            </a>
+					</li>
+
+					<li class="sidebar-item {{request()->routeIs('admin.sub_category.manage')?'active':''}}">
+						<a class="sidebar-link" href="{{ route('admin.sub_category.manage') }}">
+              <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Manage</span>	
+            </a>
+					</li>
+
+					<li class="sidebar-header">
 						Product
 					</li>
 
