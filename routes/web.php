@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerStoreController;
 use App\Http\Controllers\Seller\SellerProductController;
+use App\Http\Controllers\Seller\MasterStoreController;
 use App\Http\Controllers\Customer\CustomerMainController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,14 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
         Route::controller(SellerProductController::class)->group(function () {
             Route::get('/product/create', 'index')->name('vendor.product');
             Route::get('/product/manage', 'manage')->name('vendor.product.manage');
+        });
+
+        Route::controller(MasterSellerController::class)->group(function () {
+                Route::post( '/store/subcategory', 'storesubcat')->name('store.subcat');
+                Route::get( '/subcategory/{id}', 'showsubcat')->name('show.subcat');
+                Route::put( '/subcategory/update/{id}', 'updatesubcat')->name('update.subcat');
+                Route::delete( '/subcategory/delete/{id}', 'deletesubcat')->name('delete.subcat');
+                
         });
     });
 });
