@@ -34,8 +34,8 @@ Manage Store
                             <td>{{ $store->slug }}</td>
                             <td>{{ $store->details }}</td>
                             <td>
-                                <a href="" class="btn btn-info">Edit</a>
-                                <form action="" method="POST">
+                                <a href="{{ route('show.store', $store->id) }}" class="btn btn-info">Edit</a>
+                                <form action="{{ route('delete.store', $store->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Delete" class="btn btn-danger">

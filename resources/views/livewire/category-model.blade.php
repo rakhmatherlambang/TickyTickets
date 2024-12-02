@@ -6,5 +6,10 @@
         @endforeach
     </select>
 
-    {{ $selectedCategory }}
+    <select class="form-control">
+        <option value="">Select a Subcategory</option>
+        @foreach ($subcategories as $subcategory)
+            <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+        @endforeach
+    </select>
 </div>

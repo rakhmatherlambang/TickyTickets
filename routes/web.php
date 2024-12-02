@@ -87,12 +87,11 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
             Route::get('/product/manage', 'manage')->name('vendor.product.manage');
         });
 
-        Route::controller(MasterSellerController::class)->group(function () {
-                Route::post( '/store/subcategory', 'storesubcat')->name('store.subcat');
-                Route::get( '/subcategory/{id}', 'showsubcat')->name('show.subcat');
-                Route::put( '/subcategory/update/{id}', 'updatesubcat')->name('update.subcat');
-                Route::delete( '/subcategory/delete/{id}', 'deletesubcat')->name('delete.subcat');
-                
+        Route::controller(MasterStoreController::class)->group(function () {
+                Route::post( '/store/create', 'store')->name('store');
+                Route::get( '/store/{id}', 'show_store')->name('show.store');
+                Route::put( '/store/update/{id}', 'update_store')->name('update.store');
+                Route::delete( '/store/delete/{id}', 'delete_store')->name('delete.store');
         });
     });
 });
