@@ -12,15 +12,15 @@ class Product extends Model
     protected $fillable = [
         'product_name',
         'description',
+        'seller_id',
         'category_id',
         'subcategory_id',
         'store_id',
         'regular_price',
-        'discounted_price',
         'tax_rate',
         'stock_quantity',
         'stock_status',
-        'stock_status',
+        'slug',
         'visibility',
         'meta_title',
         'meta_description',
@@ -33,7 +33,7 @@ class Product extends Model
     public function subcategory(){
         return $this->belongsTo(Subcategory::class);
     }
-    public function strore(){
+    public function store(){
         return $this->belongsTo(store::class);
     }
     public function seller(){

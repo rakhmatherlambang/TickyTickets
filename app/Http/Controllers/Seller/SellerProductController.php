@@ -23,9 +23,9 @@ class SellerProductController extends Controller
         $request->validate([
             'product_name'=>'required|string|max:255',
             'description'=>'nullable|string',
-            'category_id'=>'required|exist:categories,id',
-            'subcategory_id'=>'required|exist:subcategories,id',
-            'store_id'=>'required|exist:stores,id',
+            'category_id'=>'required|exists:categories,id',
+            'subcategory_id'=>'required|exists:subcategories,id',
+            'store_id'=>'required|exists:stores,id',
             'regular_price'=>'required|numeric|min:0',
             'tax_rate'=>'required|numeric|min:0|max:100',
             'stock_quantity'=>'required|integer|min:0',
@@ -34,20 +34,18 @@ class SellerProductController extends Controller
         ]);
 
         $product = Product::create([
-            'product_name'=>$request->product_name,
-            'description'=>$request->description,
-            'seller_id'=>Auth::id(),
-            'category_id'=>$request->category_id,
-            'subcategory_id'=>$request->subcategory_id,
-            'store_id'=>$request->store_id,
-            'regular_price'=>$request->regular_price,
-            'tax_rate'=>$request->tax_rate,
-            'stock_quantity'=>$request->stock_quantity,
-            'stock_status'=>$request->stock_status,
-            'slug'=>$request->slug,
-            'meta_title'=>$request->meta_title,
-            'meta_description'=>$request->meta_description,
-
+            'product_name'=> $request->product_name,
+            'description'=> $request->description,
+            'seller_id'=> Auth::id(),
+            'category_id'=> $request->category_id,
+            'subcategory_id'=> $request->subcategory_id,
+            'store_id'=> $request->store_id,
+            'regular_price'=> $request->regular_price,
+            'tax_rate'=> $request->tax_rate,
+            'stock_quantity'=> $request->stock_quantity,
+            'slug'=> $request->slug,
+            'meta_title'=> $request->meta_title,
+            'meta_description'=> $request->meta_description,
         ]);
 
         if ($request->hasFile('images')){
@@ -55,13 +53,13 @@ class SellerProductController extends Controller
                 $path = $file->store('product_images', 'public');
                 ProductImage::create([
                     'product_id' => $product->id,
-                    'image_path' => $path,
+                    'img_path' => $path,
                     'is_primary' => false,
                 ]);
             }
         }
 
-        return redirect()->back()->with('succes', 'Product Added Successfully');
+        return redirect()->back()->with('success', 'Product Added Successfully');
 
     }
 }

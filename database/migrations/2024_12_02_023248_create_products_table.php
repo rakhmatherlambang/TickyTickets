@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('prodcut_name');
+            $table->string('product_name');
             $table->longText('description');
             $table->foreignId('seller_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('store_id')->constrained('stores')->onDelete('cascade');
             $table->decimal('regular_price', 8, 2);
             $table->decimal('tax_rate', 5, 2)->default(0.00);
-            $table->integer('stock_quntity')->default(0);
+            $table->integer('stock_quantity')->default(0);
             $table->enum('stock_status', ['In Stock', 'Sold Out'])->default('In Stock');
             $table->string('slug')->unique();
             $table->boolean('visibility')->default(false);

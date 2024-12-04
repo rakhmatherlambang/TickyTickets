@@ -26,10 +26,10 @@
             <form action="{{ route('vendor.product.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label for="product_name" class="fw-bold mb-2">Name of Product</label>
-                <input type="text" class="form-control mb-2" name="product_name" placeholder="YungKai Concert">
+                <input type="text" class="form-control mb-2" name="product_name" placeholder="Name Ticket">
 
                 <label for="description" class="fw-bold mb-2">Add the Description</label>
-                <textarea class="form-control mb-2" name="description" id="description" cols="30" rows="10" placeholder="YungKai Concert"></textarea>
+                <textarea class="form-control mb-2" name="description" id="description" cols="30" rows="10" placeholder="YungKai Description of the ticket"></textarea>
 
                 <label for="images" class="fw-bold mb-2">Upload the Product Images</label>
                 <input type="file" class="form-control mb-2" name="images[]" multiple>
